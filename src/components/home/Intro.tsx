@@ -38,12 +38,12 @@ export function Intro() {
           >
             <div className="absolute -inset-16 -z-10 rounded-full bg-[radial-gradient(closest-side,rgba(217,180,90,0.25),transparent)] blur-2xl" />
             <Image
-              src="/logo-vinho.png"
-              alt="Moriá"
-              width={320}
-              height={220}
+              src="/img/logo-moria.png"
+              alt="Moriá — Celulares & Assistência Técnica"
+              width={620}
+              height={449}
               priority
-              className="w-64 mix-blend-screen sm:w-80"
+              className="w-64 sm:w-80"
             />
           </motion.div>
         </motion.div>

@@ -12,7 +12,8 @@
     "db:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",
     "db:seed": "node prisma/seed.mjs",
-    "db:test": "node prisma/test-connection.mjs"
+    "db:test": "node prisma/test-connection.mjs",
+    "fotos": "node scripts/optimize-fotos.js"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",

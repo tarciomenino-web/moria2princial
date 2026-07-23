@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Wordmark } from "./Wordmark";
 import { LOJA } from "@/lib/constants";
 
 export function SiteFooter() {
@@ -6,8 +7,8 @@ export function SiteFooter() {
     <footer className="border-t border-white/6 bg-wine-950">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:grid-cols-3">
         <div>
-          <p className="text-base font-semibold tracking-[0.25em] gold-text">MORIÁ</p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/50">
+          <Wordmark asLink={false} />
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/50">
             Assistência técnica especializada em celulares. Conserto com garantia, orçamento
             transparente e atendimento pessoal.
           </p>

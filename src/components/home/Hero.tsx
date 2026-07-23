@@ -26,14 +26,20 @@ export function Hero() {
   const auroraOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.4]);
 
   return (
-    <section ref={ref} className="relative h-screen w-full overflow-hidden">
+    // min-h em svh (e não h-screen): com altura fixa o conteúdo do celular estourava a
+    // tela e o overflow-hidden cortava o título. Assim a seção cresce se precisar.
+    // O pt maior reserva espaço pra navbar fixa; o pb, pra dica de scroll.
+    <section
+      ref={ref}
+      className="relative flex min-h-[100svh] w-full items-center overflow-hidden pb-28 pt-24 sm:pb-24 sm:pt-20"
+    >
       {/* fundo */}
       <motion.div style={{ opacity: auroraOpacity }} className="wine-aurora absolute inset-0" />
       <div className="mesh absolute inset-0 opacity-60" />
       <Particles count={22} />
 
-      <div className="relative mx-auto flex h-full max-w-6xl items-center px-5">
-        <div className="grid w-full items-center gap-8 md:grid-cols-2">
+      <div className="relative mx-auto w-full max-w-6xl px-5">
+        <div className="grid w-full items-center gap-10 md:grid-cols-2">
           {/* texto */}
           <motion.div style={{ opacity: textOpacity, y: textY, filter: textFilter }}>
             <motion.p
@@ -48,7 +54,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 2.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-5xl font-semibold leading-[1.05] tracking-tight text-cream sm:text-6xl"
+              className="text-[2.125rem] font-semibold leading-[1.08] tracking-tight text-cream sm:text-5xl md:text-6xl"
             >
               O cuidado que
               <br />
@@ -107,7 +113,9 @@ export function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 2.5, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center"
+            // O mockup é decorativo e tem 457px de altura: num celular comia metade da
+            // tela e empurrava o título pra fora. Some abaixo de sm.
+            className="hidden justify-center sm:flex"
           >
             <Iphone
               tilt

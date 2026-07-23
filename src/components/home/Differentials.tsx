@@ -33,7 +33,7 @@ export function Differentials() {
       <div className="mb-14 max-w-2xl">
         <Reveal>
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-gold-400">
-            Por que a Moriá
+            Nossos diferenciais
           </p>
         </Reveal>
         <h2 className="text-3xl font-semibold tracking-tight text-cream sm:text-4xl">

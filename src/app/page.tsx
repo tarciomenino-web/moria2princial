@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { WhatsappFloat } from "@/components/WhatsappFloat";
 import { Intro } from "@/components/home/Intro";
 import { Hero } from "@/components/home/Hero";
+import { Banner } from "@/components/home/Banner";
 import { Differentials } from "@/components/home/Differentials";
 import { BeforeAfter } from "@/components/home/BeforeAfter";
 import { Services } from "@/components/home/Services";
@@ -41,6 +42,7 @@ export default function Home() {
       <SiteHeader transparent />
       <main className="flex-1">
         <Hero />
+        <Banner />
         <Differentials />
         <BeforeAfter />
         <Services />

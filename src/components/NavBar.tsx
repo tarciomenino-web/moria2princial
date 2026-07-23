@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Wordmark } from "./Wordmark";
 import { LOJA } from "@/lib/constants";
 
 type NavUser = { name: string; role: string } | null;
@@ -32,9 +33,7 @@ export function NavBar({
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-        <Link href="/" className="text-base font-semibold tracking-[0.25em] gold-text">
-          MORIÁ
-        </Link>
+        <Wordmark />
 
         <nav className="flex items-center gap-2 text-sm sm:gap-4">
           {user ? (

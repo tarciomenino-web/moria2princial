@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { Particles } from "./Particles";
@@ -15,11 +16,44 @@ export function FinalCta() {
     <>
       {/* Localização */}
       <section className="mx-auto max-w-6xl px-5 py-24">
-        <div className="glass grid gap-8 p-8 sm:p-10 md:grid-cols-2">
-          <div>
+        <div className="mb-10 max-w-2xl">
+          <Reveal>
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-gold-400">
               Onde estamos
             </p>
+          </Reveal>
+          <h2 className="text-3xl font-semibold tracking-tight text-cream sm:text-4xl">
+            Uma loja feita pra <span className="gold-text">te receber bem</span>.
+          </h2>
+        </div>
+
+        <div className="mb-8 grid gap-5 sm:grid-cols-2">
+          {[
+            {
+              src: "/img/loja-balcao.webp",
+              alt: "Balcão de atendimento da Moriá, com a parede vinho e o logo dourado ao fundo",
+            },
+            {
+              src: "/img/loja-bancada.webp",
+              alt: "Bancada técnica da Moriá com microscópios e estações de reparo",
+            },
+          ].map((foto, i) => (
+            <Reveal key={foto.src} delay={i * 0.12}>
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-white/8">
+                <Image
+                  src={foto.src}
+                  alt={foto.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 hover:scale-[1.04]"
+                />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="glass grid gap-8 p-8 sm:p-10 md:grid-cols-2">
+          <div>
             <h3 className="text-2xl font-semibold text-cream">Passa na loja</h3>
             <p className="mt-3 text-cream/60">{LOJA.endereco}</p>
             <div className="mt-6 flex flex-wrap gap-3">
