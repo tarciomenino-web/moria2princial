@@ -46,8 +46,8 @@ export function conditionLabel(value: string) {
 // Loja — dados reais
 export const LOJA = {
   nome: "Moriá — Celulares & Assistência Técnica",
-  whatsapp: "5521997410298",
-  whatsappLabel: "(21) 99741-0298",
+  whatsapp: "5521987410298",
+  whatsappLabel: "(21) 98741-0298",
   instagram: "moria.cell",
   instagramLabel: "@moria.cell",
   endereco: "Rua Carmem de Freitas Salgado, 279 — Califórnia, Nova Iguaçu - RJ, CEP 26220-470",
