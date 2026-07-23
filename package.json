@@ -2,9 +2,11 @@
   "name": "moria-site",
   "version": "0.1.0",
   "private": true,
+  "//vercel-build": "A Vercel usa vercel-build no lugar de build quando ele existe. O prisma generate mora só nele: a Vercel cacheia node_modules e pula o postinstall, mas no Windows o generate quebra o build local com EPERM se o dev server estiver segurando o engine.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate",

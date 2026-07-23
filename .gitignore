@@ -13,9 +13,9 @@
 # testing
 /coverage
 
-# next.js — o build sai em dist/ (ver distDir no next.config.ts)
-/dist/
+# next.js
 /.next/
+/dist/
 /out/
 
 # production
