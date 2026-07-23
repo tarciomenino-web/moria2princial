@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  /* base quase-preta com sub-tom vinho (não marrom) */
+  --wine-950: #080405;
+  --wine-900: #0c0609;
+  --wine-800: #120a0e; /* base da página */
+  --wine-700: #1b0d13;
+  --wine-600: #251119; /* cards */
+  --wine-500: #341823;
+
+  /* brilho vinho (glow atmosférico) */
+  --ember: #9b2740;
+  --ember-soft: rgba(155, 39, 64, 0.4);
+
+  /* ouro pontual */
+  --gold-400: #f0d888;
+  --gold-500: #d9b45a;
+  --gold-600: #c9a227;
+
+  --cream: #f4eeeb;
+}
+
+@theme inline {
+  --color-wine-950: var(--wine-950);
+  --color-wine-900: var(--wine-900);
+  --color-wine-800: var(--wine-800);
+  --color-wine-700: var(--wine-700);
+  --color-wine-600: var(--wine-600);
+  --color-wine-500: var(--wine-500);
+  --color-ember: var(--ember);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-cream: var(--cream);
+  --font-display: var(--font-inter);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--wine-950);
+}
+
+body {
+  background: var(--wine-800);
+  color: var(--cream);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+/* Texto/dourado */
+.gold-text {
+  background: linear-gradient(180deg, #f5e29c 0%, #d9b45a 50%, #b8860b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f0d888 0%, #d9b45a 55%, #b8860b 100%);
+}
+
+/* Vidro fosco premium */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-hover {
+  transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+.glass-hover:hover {
+  border-color: rgba(217, 180, 90, 0.35);
+  box-shadow: 0 20px 60px -20px rgba(155, 39, 64, 0.5);
+}
+
+/* card sólido escuro (interno) */
+.card {
+  background: linear-gradient(180deg, rgba(37, 17, 25, 0.9) 0%, rgba(18, 10, 14, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+}
+
+/* Aurora / glow de fundo */
+.wine-aurora {
+  background:
+    radial-gradient(50% 40% at 75% 15%, rgba(155, 39, 64, 0.28) 0%, transparent 60%),
+    radial-gradient(40% 35% at 15% 30%, rgba(217, 180, 90, 0.08) 0%, transparent 55%),
+    var(--wine-800);
+}
+
+/* malha tecnológica quase imperceptível */
+.mesh {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(70% 60% at 50% 40%, black 0%, transparent 85%);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, black 0%, transparent 85%);
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217, 180, 90, 0.4), transparent);
+}
+
+/* partícula luminosa */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-24px) scale(1.3); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}

@@ -1,0 +1,68 @@
+// Schema do banco da Moriá — clientes, ordens de serviço e pedidos de troca.
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  // Supabase: conexão via pooler (porta 6543) — usada pelo app rodando.
+  url       = env("DATABASE_URL")
+  // Supabase: conexão direta (porta 5432) — usada pelas migrations do Prisma.
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  email     String?
+  password  String
+  role      String   @default("cliente") // "cliente" | "equipe"
+  createdAt DateTime @default(now())
+
+  serviceOrders  ServiceOrder[]
+  tradeInRequests TradeInRequest[]
+}
+
+model ServiceOrder {
+  id        String   @id @default(cuid())
+  number    Int      @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  deviceBrand String
+  deviceModel String
+  problem     String
+  serviceType String   // "tela" | "bateria" | "conector" | "molhado" | "desbloqueio" | "outro"
+
+  mode        String   // "loja" | "delivery"
+  address     String?  // preenchido quando mode = "delivery"
+
+  status      String   @default("Recebido") // Recebido → Diagnóstico → Orçamento → Aprovação → Reparo → Testes → Pronto → Entregue
+  quotedPrice Float?
+  note        String?  // observação interna da equipe visível pro cliente
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TradeInRequest {
+  id        String   @id @default(cuid())
+  number    Int      @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  currentBrand     String
+  currentModel     String
+  currentCondition String  // "otimo" | "bom" | "regular" | "quebrado"
+  desiredModel     String? // aparelho que a pessoa quer levar
+
+  status     String  @default("Recebido") // Recebido → Avaliação → Proposta enviada → Fechado → Recusado
+  offerValue Float?
+  note       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
