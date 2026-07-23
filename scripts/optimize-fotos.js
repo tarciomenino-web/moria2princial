@@ -10,7 +10,6 @@ const outDir = path.join(__dirname, "..", "public", "img");
 
 // [origem, saída, largura máx, qualidade]
 const photos = [
-  ["celular quebrado nunca mais [banner]2.png", "banner-espera.webp", 1900, 0.84],
   ["troca de tela 1.png", "servico-tela.webp", 1000, 0.8],
   ["Troca de bateria 2.png", "servico-bateria.webp", 1000, 0.8],
   ["Conector de carga 3.png", "servico-conector.webp", 1000, 0.8],
